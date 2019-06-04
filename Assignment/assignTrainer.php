@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <head>
   <title>Insert Page</title>
@@ -195,10 +192,7 @@ session_start();
           }
         }
         ?>
-        <form class="w3-container" name="Insert" action="assignTrainer.php" method="POST">
-          <p>
-            <label>ID: </label>
-            <input class="w3-input" type="number" name="id"></p>
+        <form class="w3-container" name="Insert" action="assignTrainerPHP.php" method="POST">
             <p>
               <label>Trainer Name: </label>
               <input class="w3-input" type="text" name="trainerName" required></p>

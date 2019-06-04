@@ -82,7 +82,7 @@
 			$dbname = "dbnews";
 
 			$conn = new mysqli($servername, $username, $password, $dbname);
-			$sql = "SELECT DISTINCT courseName FROM trainee";
+			$sql = "SELECT DISTINCT courseName FROM topiclist";
 			$result = mysqli_query($conn, $sql);
 			echo "<table align='center' id='customers'>";
 			while($row=mysqli_fetch_assoc($result)){

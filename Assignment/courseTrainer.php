@@ -59,10 +59,9 @@
 			<h1>Training System</h1>
 		</div>
 		<div class="topnav">
-			<a href="trainerPage.php">Home</a>
 			<a href="courseTrainer.php">Course</a>
 			<a href="topicTrainer.php">Topic</a>
-			<a href="index.php">Logout</a>s
+			<a href="index.php">Logout</a>
 			<div class="search">
 				<form action="demo.php" method="GET">
 					<input type="text" placeholder="Search..." name="keyword" value="" size="50px">
@@ -82,7 +81,7 @@
 			$dbname = "dbnews";
 
 			$conn = new mysqli($servername, $username, $password, $dbname);
-			$sql = "SELECT DISTINCT courseName FROM trainee";
+			$sql = "SELECT DISTINCT courseName FROM topiclist";
 			$result = mysqli_query($conn, $sql);
 			echo "<table align='center' id='customers'>";
 			while($row=mysqli_fetch_assoc($result)){

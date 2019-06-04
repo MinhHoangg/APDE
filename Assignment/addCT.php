@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <head>
   <title>Insert Page</title>
@@ -178,55 +175,36 @@ session_start();
           <h2>Add Course/Topic</h2>
         </div>
 
-        <?php
-        if (isset($_POST['id'])) 
-        {
-
-          if ($_POST['id'] !="" && $_POST['topicName'] !="" && $_POST['courseName'] != "") {
-            $id = $_POST['id'];
-            $topicName = $_POST['topicName'];
-            $courseName = $_POST['courseName'];
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "dbnews";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "INSERT INTO topiclist VALUES ('$id','$topicName', '$courseName')";
-            $row = mysqli_query($conn, $sql);
-          }
-        }
-        ?>
-        <form class="w3-container" name="Insert" action="addCT.php" method="POST">
+        
+        <form class="w3-container" name="Insert" action="addCTPHP.php" method="POST">
+         
           <p>
-            <label>ID: </label>
-            <input class="w3-input" type="number" name="id"></p>
+            <label>Topic Name: </label>
+            <input class="w3-input" type="text" name="topicName" required></p>
             <p>
-              <label>Topic Name: </label>
-              <input class="w3-input" type="text" name="topicName" required></p>
-              <p>
-                <label>Course Name: </label>
-                <input class="w3-input" type="text" name="courseName" required></p>
-                <li><input type="submit" value="Assign"></li>
-              </form>
-            </ul>
-            <table align="center" id="customers">
-              <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th></tr>
-            </table>
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "dbnews";
+              <label>Course Name: </label>
+              <input class="w3-input" type="text" name="courseName" required></p>
+              <li><input type="submit" value="Assign"></li>
+            </form>
+          </ul>
+          <table align="center" id="customers">
+            <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th></tr>
+          </table>
+          <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "dbnews";
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT * FROM topiclist";
-            $result = mysqli_query($conn, $sql);
-            echo "<table align='center' id='customers'>";
-            while($row=mysqli_fetch_assoc($result)){
-              echo "<td align='center' width='200'>" . $row['id'] . "</td>";
-              echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
-              echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
-              echo "</tr>";}
-              echo "</table>";?>
-            </body>
-            </html>
+          $conn = new mysqli($servername, $username, $password, $dbname);
+          $sql = "SELECT * FROM topiclist";
+          $result = mysqli_query($conn, $sql);
+          echo "<table align='center' id='customers'>";
+          while($row=mysqli_fetch_assoc($result)){
+            echo "<td align='center' width='200'>" . $row['id'] . "</td>";
+            echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
+            echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
+            echo "</tr>";}
+            echo "</table>";?>
+          </body>
+          </html>

@@ -58,7 +58,6 @@
 			<h1>Training System</h1>
 		</div>
 		<div class="topnav">
-			<a href="trainerPage.php">Home</a>
 			<a href="courseTrainer.php">Course</a>
 			<a href="topicTrainer.php">Topic</a>
 			<a href="index.php">Logout</a>

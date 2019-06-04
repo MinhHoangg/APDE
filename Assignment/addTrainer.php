@@ -118,7 +118,7 @@
           margin-top: 12px;
         }
         .button {
-          background-color: #4CAF50;
+          background-color: #4CAF50; /* Green */
           border: none;
           color: white;
           padding: 16px 32px;
@@ -127,7 +127,8 @@
           display: inline-block;
           font-size: 16px;
           margin: 4px 2px;
-          -webkit-transition-duration: 0.4s;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
           cursor: pointer;
         }
         .button5 {
@@ -171,39 +172,28 @@
       </div>
       <ul>
         <div>
-          <h2>Update Staff Account</h2>
+          <h2>Add Trainer Account</h2>
         </div>
-
-        <?php
-        if (isset($_POST['id'])) 
-        {
-          $id = $_POST['id'];
-          $usernames = $_POST['username'];
-          $passwords = $_POST['password'];
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "dbnews";
-          $conn = new mysqli($servername, $username, $password, $dbname);
-          $sql = "UPDATE staff SET username = '$usernames', password = '$passwords' WHERE id = '$id'";
-          $row = mysqli_query($conn, $sql);
-        }
-        ?>
-        <form class="w3-container" name="Insert" action="" method="POST">
-          <p>
-            <label>ID: <?php echo $_GET['id'] ?> </label>
-            <input class="w3-input" type="hidden" value="<?php echo $_GET['id'] ?>" name="id"></p>
+        <form class="w3-container" name="Insert" action="addTrainerPHP.php" method="POST">
             <p>
               <label>Username: </label>
-              <input class="w3-input" type="text" name="username" required></p>
+              <input class="w3-input" type="text" name="usernames" required></p>
               <p>
                 <label>Password: </label>
-                <input class="w3-input" type="text" name="password" required></p>
-                <li><input type="submit" value="Update"></li>
+                <input class="w3-input" type="text" name="passwords" required></p>
+                <p>
+              <label>Trainer Name: </label>
+              <input class="w3-input" type="text" name="trainerName" required></p>
+              <p>
+              <label>Degree: </label>
+              <input class="w3-input" type="text" name="degree" required></p>
+              <p>
+              <label>Phone: </label>
+              <input class="w3-input" type="number" name="phone" required></p>
+                <li><input type="submit" value="Assign"></li>
               </form>
             </ul>
             <table align="center" id="customers">
-              <tr><th align='center' width='200' colspan="4">Staff Account</th></tr>
               <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Username</th><th align='center' width='200'>Password</th></tr>
             </table>
             <?php
@@ -213,11 +203,10 @@
             $dbname = "dbnews";
 
             $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT *  FROM staff";
+            $sql = "SELECT * FROM trainer";
             $result = mysqli_query($conn, $sql);
             echo "<table align='center' id='customers'>";
             while($row=mysqli_fetch_assoc($result)){
-              echo "<form method= 'GET' action='editStaff.php'>";
               echo "<td align='center' width='200'>" . $row['id'] . "</td>";
               echo "<td align='center' width='200'>" . $row['username'] . "</td>";
               echo "<td align='center' width='200'>" . $row['password'] . "</td>";

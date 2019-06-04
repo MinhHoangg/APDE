@@ -114,11 +114,6 @@
             </form>
           </td>
           <td>
-            <form action="deleteTrainee.php">
-              <button class="button button5">Delete Trainee</button>
-            </form>
-          </td>
-          <td>
             <form action="addCT.php">
               <button class="button button5">Add Course/Topic</button>
             </form>
@@ -132,9 +127,6 @@
       </table>
     </div>
     <div>
-      <table align="center" id="customers">
-        <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Trainee Name</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th><th align='center' width='200'>Trainer Name</th></tr>
-      </table>
       <?php
       $servername = "localhost";
       $username = "root";
@@ -144,16 +136,26 @@
       $conn = new mysqli($servername, $username, $password, $dbname);
       $sql = "SELECT * FROM trainee";
       $result = mysqli_query($conn, $sql);
-      echo "<table align='center' id='customers'>";
+      echo "<table align='center' id='customers'>";?>
+      <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Trainee Name</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th><th align='center' width='200'>Trainer Name</th><th></th></tr>
+      <?php
       while($row=mysqli_fetch_assoc($result)){
         echo "<td align='center' width='200'>" . $row['id'] . "</td>";
         echo "<td align='center' width='200'>" . $row['name'] . "</td>";
         echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
         echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
-        echo "<td align='center' width='200'>" . $row['trainerName'] . "</td>";
+        echo "<td align='center' width='200'>" . $row['trainerName'] . "</td>";?>
+        <td align="center">
+          <button type='submit' onclick="myFunction()"><a href="deleteTrainee.php?id=<?php echo $row['id'] ?>"><img src="img/delete.png" height="15px" width="15px"></a></button>
+        </td>
+        <?php
         echo "</tr>";}
         echo "</table>";?>
-
       </div>
+      <script>
+        function myFunction() {
+          var r =confirm("Are you sure?");              
+        }
+      </script>
     </body>
     </html>

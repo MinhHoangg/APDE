@@ -76,8 +76,9 @@
     <tr>
       <td align='center' width='200'>
         <table align="center" id="customers">
-          <tr><th align='center' width='200' colspan="4">Staff Account</th></tr>
-          <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Username</th><th align='center' width='200'>Password</th><th align='center' width='200'>Update Account</th></tr>
+          <tr><th align='center' width='200' colspan="4"><form action="addStaff.php">
+            <button class="button button5">Add Staff Acc</button>
+          </form></th></tr>
         </table>
         <?php
         $servername = "localhost";
@@ -89,42 +90,60 @@
         $sql = "SELECT *  FROM staff";
         $result = mysqli_query($conn, $sql);
         echo "<table align='center' id='customers'>";
+        ?>
+        <tr><th align='center' width='200' colspan="4">Staff Account</th></tr>
+        <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Username</th><th align='center' width='200'>Password</th><th align='center' width='200'>Update Account</th></tr>
+        <?php
         while($row=mysqli_fetch_assoc($result)){
           echo "<td align='center' width='200'>" . $row['id'] . "</td>";
           echo "<td align='center' width='200'>" . $row['username'] . "</td>";
           echo "<td align='center' width='200'>" . $row['password'] . "</td>";
-          echo "<td align='center' width='200'><form action='editStaff.php'>
-          <button>Edit</button>
-          </form></td>";
-          echo "</tr>";}
-          echo "</table>";?>
-        </td>
-        <td align='center' width='200'>
-         <table align="center" id="customers">
+          ?>
+          <td align="center" width="200">
+            <button type='submit'><a href="editStaff.php?id=<?php echo $row['id'] ?>"><img src="img/edit.png" height="15px" width="15px"></a></button>
+            <button type='submit' onclick="myFunction()"><a href="deleteStaffAcc.php?id=<?php echo $row['id'] ?>"><img src="img/delete.png" height="15px" width="15px"></a></button></td>
+            <?php 
+            echo "</tr>";}
+            echo "</table>";?>
+          </td>
+          <td align='center' width='200'>
+           <table align="center" id="customers">
+            <tr><th align='center' width='200' colspan="4"><form action="addTrainer.php">
+              <button class="button button5" type="submit">Add Trainer Acc</button>
+            </form></th></tr>
+          </table>
+          <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "dbnews";
+
+          $conn = new mysqli($servername, $username, $password, $dbname);
+          $sql = "SELECT *  FROM trainer";
+          $result = mysqli_query($conn, $sql);
+          echo "<table align='center' id='customers'>";
+          ?>
           <tr><th align='center' width='200' colspan="4">Trainer Account</th></tr>
           <tr><th align='center' width='200'>ID</th><th align='center' width='200'>Username</th><th align='center' width='200'>Password</th><th align='center' width='200'>Update Account</th></tr>
-        </table>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "dbnews";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        $sql = "SELECT *  FROM trainer";
-        $result = mysqli_query($conn, $sql);
-        echo "<table align='center' id='customers'>";
-        while($row=mysqli_fetch_assoc($result)){
-          echo "<td align='center' width='200'>" . $row['id'] . "</td>";
-          echo "<td align='center' width='200'>" . $row['username'] . "</td>";
-          echo "<td align='center' width='200'>" . $row['password'] . "</td>";?>
-          <td align="center" width="200"><button type='submit'><a href="editTrainer.php?id=<?php echo $row['id'] ?>">Edit</a></button></td>
           <?php
-          echo "</tr>";}
-          echo "</table>";?>
-        </td>
-      </tr>
-    </table>
-  </div>
-</body>
-</html>
+          while($row=mysqli_fetch_assoc($result)){
+            echo "<td align='center' width='200'>" . $row['id'] . "</td>";
+            echo "<td align='center' width='200'>" . $row['username'] . "</td>";
+            echo "<td align='center' width='200'>" . $row['password'] . "</td>";?>
+            <td align="center" width="200">
+              <button type='submit'><a href="editTrainer.php?id=<?php echo $row['id'] ?>"><img src="img/edit.png" height="15px" width="15px"></a></button>
+              <button type='submit' onclick="myFunction()"><a href="deleteTrainerAcc.php?id=<?php echo $row['id'] ?>"><img src="img/delete.png" height="15px" width="15px"></a></button></td>
+              <?php
+              echo "</tr>";}
+              echo "</table>";?>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <script>
+        function myFunction() {
+          var r =confirm("Are you sure?");              
+        }
+      </script>
+    </body>
+    </html>

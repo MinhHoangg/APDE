@@ -188,7 +188,7 @@
    <div><button class="button button5" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Trainer</button></div>
    <div id="id03" class="modal">
     
-     <form class="modal-content animate" action="trainerLogin.php" method="POST">
+     <form class="modal-content animate" action="trainerPage.php" method="POST">
       <div class="container">
         <label for="user"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="user" required>

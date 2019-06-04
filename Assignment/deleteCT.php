@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <head>
   <title>Insert Page</title>
@@ -196,7 +193,7 @@ session_start();
         <form class="w3-container" name="Insert" action="deleteCT.php" method="POST">
           <p>
             <label>ID: </label>
-            <input class="w3-input" type="number" name="id"></p>
+            <input class="w3-input" type="number" name="id" required></p>
             <li><input type="submit" value="Delete"></li>
           </form>
         </ul>

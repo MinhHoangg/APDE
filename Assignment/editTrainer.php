@@ -195,10 +195,10 @@
             <input class="w3-input" type="hidden" value="<?php echo $_GET['id'] ?>" name="id"></p>
             <p>
               <label>Username: </label>
-              <input class="w3-input" type="text" name="username"></p>
+              <input class="w3-input" type="text" name="username" required></p>
               <p>
                 <label>Password: </label>
-                <input class="w3-input" type="text" name="password"></p>
+                <input class="w3-input" type="text" name="password" required></p>
                 <li><input type="submit" value="Update"></li>
               </form>
             </ul>

@@ -59,7 +59,6 @@
 			<h1>Training System</h1>
 		</div>
 		<div class="topnav">
-			<a href="trainerPage.php">Home</a>
 			<a href="courseTrainer.php">Course</a>
 			<a href="topicTrainer.php">Topic</a>
 			<a href="index.php">Logout</a>
@@ -71,29 +70,67 @@
 				
 			</div>
 		</div>
-		<div>
-			<table align="center" id="customers">
-				<tr><th align='center' width='200'>ID</th><th align='center' width='200'>Trainee Name</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th><th align='center' width='200'>Trainer Name</th></tr>
-			</table>
+		<table align="center">
 			<?php
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
 			$dbname = "dbnews";
 
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			$sql = "SELECT * FROM trainee";
-			$result = mysqli_query($conn, $sql);
-			echo "<table align='center' id='customers'>";
-			while($row=mysqli_fetch_assoc($result)){
-				echo "<td align='center' width='200'>" . $row['id'] . "</td>";
-				echo "<td align='center' width='200'>" . $row['name'] . "</td>";
-				echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
-				echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
-				echo "<td align='center' width='200'>" . $row['trainerName'] . "</td>";
-				echo "</tr>";}
-				echo "</table>";?>
+			$conn1 = new mysqli($servername, $username, $password, $dbname);
+			$sql1 = "SELECT * FROM trainer WHERE username='".$_POST['user']."' and password='".$_POST['pass']."'";
+			$results = mysqli_query($conn1, $sql1);
+			$num_rows = mysqli_num_rows($results);
+			if($num_rows!=1){
+			header("location:index.php");
+		}
+		while($rows=mysqli_fetch_assoc($results)){
+		?> 
+		<tr>
+			<td>Trainer name:</td>
+			<td><?=$rows['trainerName']?></td>
+			<?php $trainerName = $rows['trainerName'];?>
+		</tr>
+		<tr>
+			<td>Education:</td>
+			<td><?=$rows['degree']?></td>
+		</tr>
+		<tr>
+			<td>Telephone:</td>
+			<td><?=$rows['phone']?></td>
+		</tr>
+		<tr>
+			<td>
+				<button type='submit'><a href="editProfile.php?id=<?php echo $rows['id'] ?>"><img src="img/edit.png" height="15px" width="15px"></a></button>
+			</td>
+		</tr>
+		<?php
+	}
+	?>
+</table>
+<div>
+	<table align="center" id="customers">
+		<tr><th align='center' width='200'>ID</th><th align='center' width='200'>Trainee Name</th><th align='center' width='200'>Topic</th><th align='center' width='200'>Course</th><th align='center' width='200'>Trainer Name</th></tr>
+	</table>
+	<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "dbnews";
 
-			</div>
-		</body>
-		</html>
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	$sql = "SELECT * FROM trainee WHERE trainerName = '$trainerName'";
+	$result = mysqli_query($conn, $sql);
+	echo "<table align='center' id='customers'>";
+		while($row=mysqli_fetch_assoc($result)){
+		echo "<td align='center' width='200'>" . $row['id'] . "</td>";
+		echo "<td align='center' width='200'>" . $row['name'] . "</td>";
+		echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
+		echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
+		echo "<td align='center' width='200'>" . $row['trainerName'] . "</td>";
+	echo "</tr>";}
+echo "</table>";?>
+
+</div>
+</body>
+</html>
