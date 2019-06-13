@@ -175,28 +175,7 @@
           <h2>Add Staff Account</h2>
         </div>
 
-        <?php
-        if (isset($_POST['id'])) 
-        {
-
-          if ($_POST['id'] !="" && $_POST['usernames'] !=""  && $_POST['passwords'] !="") {
-            $id = $_POST['id'];
-            $usernames = $_POST['usernames'];
-            $passwords = $_POST['passwords'];
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "dbnews";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "INSERT INTO staff VALUES ('$id', '$usernames', '$passwords')";
-            $row = mysqli_query($conn, $sql);
-          }
-        }
-        ?>
-        <form class="w3-container" name="Insert" action="addStaff.php" method="POST">
-          <p>
-            <label>ID: </label>
-            <input class="w3-input" type="number" name="id" required></p>
+        <form class="w3-container" name="Insert" action="addStaffPHP.php" method="POST">
             <p>
               <label>Username: </label>
               <input class="w3-input" type="text" name="usernames" required></p>

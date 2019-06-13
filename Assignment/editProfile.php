@@ -175,18 +175,30 @@
         </div>
 
         <form class="w3-container" name="Insert" action="editProfilePHP.php" method="POST">
+          <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "dbnews";
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            $sql = "SELECT *  FROM trainer WHERE id = '".$_GET['id']. "'";
+            $result = mysqli_query($conn, $sql); 
+          ?>
+          <?php while($row=mysqli_fetch_assoc($result)){ 
+            ?>
           <p>
             <label>ID: <?php echo $_GET['id'] ?> </label>
             <input class="w3-input" type="hidden" value="<?php echo $_GET['id'] ?>" name="id"></p>
             <p>
               <label>Trainer Name: </label>
-              <input class="w3-input" type="text" name="trainerName" required></p>
+              <input class="w3-input" type="text" name="trainerName" value="<?php echo $row['trainerName']?>" required></p>
               <p>
                 <label>Degree: </label>
-                <input class="w3-input" type="text" name="degree" required></p>
+                <input class="w3-input" type="text" name="degree" value = "<?php echo $row['degree'] ?>" required></p>
                 <p>
                   <label>Phone: </label>
-                  <input class="w3-input" type="text" name="phone" required></p>
+                  <input class="w3-input" type="text" name="phone" value = "<?php echo $row['phone']?>" required></p>
                   <li><button type="submit" onclick="myFunction()">Update</button></li>
                   <script>
                     function myFunction() {
@@ -194,6 +206,7 @@
                       window.location.assign("index.php");               
                     }
                   </script>
+                <?php } ?>
                 </form>
               </ul>
 

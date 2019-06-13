@@ -3,9 +3,9 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "dbnews";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM admin WHERE username='".$_POST['user']."' and password='".$_POST['pass']."'";
+$encode = md5($_POST['pass']);
+$sql = "SELECT * FROM admin WHERE username='".$_POST['user']."' and password='".$encode."'";
 $result = mysqli_query($conn, $sql);
 $num_rows = mysqli_num_rows($result);
 if($num_rows==1){

@@ -78,7 +78,8 @@
 			$dbname = "dbnews";
 
 			$conn1 = new mysqli($servername, $username, $password, $dbname);
-			$sql1 = "SELECT * FROM trainer WHERE username='".$_POST['user']."' and password='".$_POST['pass']."'";
+			$encode = md5($_POST['pass']);
+			$sql1 = "SELECT * FROM trainer WHERE username='".$_POST['user']."' and password='".$encode."'";
 			$results = mysqli_query($conn1, $sql1);
 			$num_rows = mysqli_num_rows($results);
 			if($num_rows!=1){

@@ -180,12 +180,13 @@
           $id = $_POST['id'];
           $usernames = $_POST['username'];
           $passwords = $_POST['password'];
+          $encode = md5($passwords);
           $servername = "localhost";
           $username = "root";
           $password = "";
           $dbname = "dbnews";
           $conn = new mysqli($servername, $username, $password, $dbname);
-          $sql = "UPDATE trainer SET username = '$usernames', password = '$passwords' WHERE id = '$id'";
+          $sql = "UPDATE trainer SET username = '$usernames', password = '$encode' WHERE id = '$id'";
           $row = mysqli_query($conn, $sql);
         }
         ?>

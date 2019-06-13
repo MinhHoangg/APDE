@@ -5,7 +5,8 @@ $password = "";
 $dbname = "dbnews";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM trainer WHERE username='".$_POST['user']."' and password='".$_POST['pass']."'";
+$encode = md5($_POST['pass']);
+$sql = "SELECT * FROM trainer WHERE username='".$_POST['user']."' and password='".$encode."'";
 $result = mysqli_query($conn, $sql);
 $num_rows = mysqli_num_rows($result);
 $GLOBALS['user'] = $_POST['user'];

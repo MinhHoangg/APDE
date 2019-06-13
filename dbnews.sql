@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 04, 2019 lúc 06:26 AM
+-- Thời gian đã tạo: Th6 13, 2019 lúc 07:32 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.3
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `username`, `password`) VALUES
-(1, 'staff', 'staff');
+(2, 'minh', 'c92f1d1f2619172bf87a12e5915702a6'),
+(3, 'nghia', '9e87373408a6cd425ae9b19bf870d893');
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,8 @@ INSERT INTO `trainee` (`id`, `name`, `topicName`, `courseName`, `trainerName`) V
 (5, 'Pham Hoang Nam', 'Business Laws', 'Business Program', 'Lai Manh Dung'),
 (6, 'Le Thanh Hung', 'Management Accounting', 'Business Program', 'Doan Trung Tung'),
 (12, 'Trinh Thai Binh', 'Dancing', 'Graphic Design', 'Nguyen Hong Phuong'),
-(13, 'HoÃ ng Quang Minh', 'Programming', 'Business Program', 'Nguyen Hong Phuong');
+(13, 'HoÃ ng Quang Minh', 'Programming', 'Business Program', 'Nguyen Hong Phuong'),
+(14, 'Thao Gum', 'Programming', 'Graphic Design', 'Doan Trung Tung');
 
 -- --------------------------------------------------------
 
@@ -164,8 +166,8 @@ CREATE TABLE `trainer` (
 --
 
 INSERT INTO `trainer` (`id`, `username`, `password`, `trainerName`, `degree`, `phone`) VALUES
-(3, 'binh', 'binh', 'Do Quoc Binh', 'Master', '1'),
-(4, 'dung', 'dung', 'Lai Manh Dung', 'Ph.D', '987789987');
+(6, 'tung', 'bb7d4b236b564cf1ec27aa891331e0af', 'Doan Trung Tung', 'Ph.D', '123'),
+(8, 'dung2', 'a15f7bda1cee4c151f2c93827eb75a3c', 'Lai Manh Dung', 'Master', '1');
 
 -- --------------------------------------------------------
 
@@ -248,7 +250,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `topic`
@@ -266,13 +268,13 @@ ALTER TABLE `topiclist`
 -- AUTO_INCREMENT cho bảng `trainee`
 --
 ALTER TABLE `trainee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `trainer`
 --
 ALTER TABLE `trainer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `trainerlist`
