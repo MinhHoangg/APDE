@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 18, 2019 lúc 05:44 PM
--- Phiên bản máy phục vụ: 10.1.38-MariaDB
--- Phiên bản PHP: 7.3.3
+-- Host: 127.0.0.1
+-- Generation Time: Jun 19, 2019 at 08:03 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `dbnews`
+-- Database: `dbnews`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `staff`
+-- Table structure for table `staff`
 --
 
 CREATE TABLE `staff` (
@@ -54,7 +54,7 @@ CREATE TABLE `staff` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `staff`
+-- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `username`, `password`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `staff` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `topic`
+-- Table structure for table `topic`
 --
 
 CREATE TABLE `topic` (
@@ -74,7 +74,7 @@ CREATE TABLE `topic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `topic`
+-- Dumping data for table `topic`
 --
 
 INSERT INTO `topic` (`id`, `topicName`, `courseName`) VALUES
@@ -91,7 +91,7 @@ INSERT INTO `topic` (`id`, `topicName`, `courseName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `topiclist`
+-- Table structure for table `topiclist`
 --
 
 CREATE TABLE `topiclist` (
@@ -101,7 +101,7 @@ CREATE TABLE `topiclist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `topiclist`
+-- Dumping data for table `topiclist`
 --
 
 INSERT INTO `topiclist` (`id`, `topicName`, `courseName`) VALUES
@@ -120,7 +120,7 @@ INSERT INTO `topiclist` (`id`, `topicName`, `courseName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trainee`
+-- Table structure for table `trainee`
 --
 
 CREATE TABLE `trainee` (
@@ -128,28 +128,31 @@ CREATE TABLE `trainee` (
   `name` varchar(200) DEFAULT NULL,
   `topicName` varchar(200) DEFAULT NULL,
   `courseName` varchar(200) DEFAULT NULL,
-  `trainerName` varchar(200) DEFAULT NULL
+  `trainerName` varchar(200) DEFAULT NULL,
+  `Age` int(11) DEFAULT NULL,
+  `education` char(20) DEFAULT NULL,
+  `ProgrammingLanguage` char(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `trainee`
+-- Dumping data for table `trainee`
 --
 
-INSERT INTO `trainee` (`id`, `name`, `topicName`, `courseName`, `trainerName`) VALUES
-(1, 'Hoang Quang Minh', 'Web Development', 'Computing', 'Lai Manh Dung'),
-(2, 'Dao Chinh Nghia', 'Web Development', 'Computing', 'Lai Manh Dung'),
-(3, 'Tran Xuan Bach', 'Programming', 'Computing', 'Doan Trung Tung'),
-(4, 'Pham Minh Thang', 'Cloud Computing', 'Computing', 'Do Quoc Binh'),
-(5, 'Pham Hoang Nam', 'Business Laws', 'Business Program', 'Lai Manh Dung'),
-(6, 'Le Thanh Hung', 'Management Accounting', 'Business Program', 'Doan Trung Tung'),
-(12, 'Trinh Thai Binh', 'Dancing', 'Graphic Design', 'Nguyen Hong Phuong'),
-(13, 'HoÃ ng Quang Minh', 'Programming', 'Business Program', 'Nguyen Hong Phuong'),
-(14, 'Thao Gum', 'Programming', 'Graphic Design', 'Doan Trung Tung');
+INSERT INTO `trainee` (`id`, `name`, `topicName`, `courseName`, `trainerName`, `Age`, `education`, `ProgrammingLanguage`) VALUES
+(1, 'Hoang Quang Minh', 'Web Development', 'Computing', 'Lai Manh Dung', 20, 'student', 'C++'),
+(2, 'Dao Chinh Nghia', 'Web Development', 'Computing', 'Lai Manh Dung', 20, 'student', 'C++'),
+(3, 'Tran Xuan Bach', 'Programming', 'Computing', 'Doan Trung Tung', 20, 'student', 'C++'),
+(4, 'Pham Minh Thang', 'Cloud Computing', 'Computing', 'Do Quoc Binh', 20, 'student', 'C++'),
+(5, 'Pham Hoang Nam', 'Business Laws', 'Business Program', 'Lai Manh Dung', 20, 'student', 'C++'),
+(6, 'Le Thanh Hung', 'Management Accounting', 'Business Program', 'Doan Trung Tung', 20, 'student', 'C++'),
+(12, 'Trinh Thai Binh', 'Dancing', 'Graphic Design', 'Nguyen Hong Phuong', 20, 'student', 'C++'),
+(13, 'HoÃ ng Quang Minh', 'Programming', 'Business Program', 'Nguyen Hong Phuong', 20, 'student', 'C++'),
+(14, 'Thao Gum', 'Programming', 'Graphic Design', 'Doan Trung Tung', 20, 'student', 'C++');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trainer`
+-- Table structure for table `trainer`
 --
 
 CREATE TABLE `trainer` (
@@ -162,7 +165,7 @@ CREATE TABLE `trainer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `trainer`
+-- Dumping data for table `trainer`
 --
 
 INSERT INTO `trainer` (`id`, `username`, `password`, `trainerName`, `degree`, `phone`) VALUES
@@ -172,7 +175,7 @@ INSERT INTO `trainer` (`id`, `username`, `password`, `trainerName`, `degree`, `p
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trainerlist`
+-- Table structure for table `trainerlist`
 --
 
 CREATE TABLE `trainerlist` (
@@ -181,7 +184,7 @@ CREATE TABLE `trainerlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `trainerlist`
+-- Dumping data for table `trainerlist`
 --
 
 INSERT INTO `trainerlist` (`id`, `trainerName`) VALUES
@@ -191,93 +194,93 @@ INSERT INTO `trainerlist` (`id`, `trainerName`) VALUES
 (4, 'Nguyen Hong Phuong');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `staff`
+-- Indexes for table `staff`
 --
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `topic`
+-- Indexes for table `topic`
 --
 ALTER TABLE `topic`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `topiclist`
+-- Indexes for table `topiclist`
 --
 ALTER TABLE `topiclist`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `trainee`
+-- Indexes for table `trainee`
 --
 ALTER TABLE `trainee`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `trainer`
+-- Indexes for table `trainer`
 --
 ALTER TABLE `trainer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `trainerlist`
+-- Indexes for table `trainerlist`
 --
 ALTER TABLE `trainerlist`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `staff`
+-- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `topic`
+-- AUTO_INCREMENT for table `topic`
 --
 ALTER TABLE `topic`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `topiclist`
+-- AUTO_INCREMENT for table `topiclist`
 --
 ALTER TABLE `topiclist`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT cho bảng `trainee`
+-- AUTO_INCREMENT for table `trainee`
 --
 ALTER TABLE `trainee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT cho bảng `trainer`
+-- AUTO_INCREMENT for table `trainer`
 --
 ALTER TABLE `trainer`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `trainerlist`
+-- AUTO_INCREMENT for table `trainerlist`
 --
 ALTER TABLE `trainerlist`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

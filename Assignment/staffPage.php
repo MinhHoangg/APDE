@@ -141,7 +141,7 @@
       <?php
       while($row=mysqli_fetch_assoc($result)){
         echo "<td align='center' width='200'>" . $row['id'] . "</td>";
-        echo "<td align='center' width='200'>" . $row['name'] . "</td>";
+        ?><td align='center' width='200'> <a href="traineeProfile.php?id=<?php echo $row['id'] ?>" type="submit"><?php echo $row['name'] ?></a></td> <?php
         echo "<td align='center' width='200'>" . $row['topicName'] . "</td>";
         echo "<td align='center' width='200'>" . $row['courseName'] . "</td>";
         echo "<td align='center' width='200'>" . $row['trainerName'] . "</td>";?>
